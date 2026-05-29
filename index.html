@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon --> <link rel="icon" type="image/png" href="favicon.png" /> 
+  <!-- SEO Meta Tags -->
+  <title>Barber Budapest – Professional Barber Services | Murányi u. 17</title>
+  <meta name="description" content="Professional barber services in Budapest. Multilingual barbers speaking Hungarian, English, French and Arabic. Book your appointment at Murányi u. 17, 1078 Budapest." />
+  <meta name="keywords" content="barber budapest, barbershop budapest, férfi fodrász budapest, hajvágás budapest, beard trim budapest" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Barber Budapest – Premium Barbershop" />
+  <meta property="og:description" content="Professional multilingual barbers in Budapest. Appointment required." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://barbershop-budapest.hu/" />
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --gold:       #c9a84c;
+      --gold-light: #e2c47a;
+      --gold-dim:   #a07830;
+      --black:      #0a0a0a;
+      --dark:       #111111;
+      --dark-2:     #161616;
+      --dark-3:     #1e1e1e;
+      --dark-4:     #252525;
+      --white:      #f5f0e8;
+      --grey:       #888888;
+      --grey-light: #cccccc;
+      --radius:     12px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    ul  { list-style: none; }
+
+    /* ============================================================
+       SCROLLBAR
+    ============================================================ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .container {
+      width: 92%;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-desc {
+      color: var(--grey-light);
+      font-weight: 300;
+      max-width: 580px;
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .gold-line {
+      width: 54px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.2rem 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      outline: none;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       FADE-IN ON SCROLL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0.9rem 0;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(10,10,10,0.96);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.6);
+      padding: 0.5rem 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: var(--white); font-weight: 300; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Language switcher */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 30px;
+      padding: 0.3rem 0.5rem;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--grey);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 20px;
+      transition: var(--transition);
+      text-transform: uppercase;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: rgba(10,10,10,0.98);
+      padding: 1.5rem 1.5rem 2rem;
+      gap: 1.2rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      font-weight: 400;
+      transition: color var(--transition);
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.65) 55%, rgba(10,10,10,0.88) 100%), url('pic4.webp') center/cover no-repeat; z-index: 0; }
+
+    /* Decorative diagonal line */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, transparent 65%, rgba(201,168,76,0.04) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.35);
+      padding: 0.4rem 1.1rem;
+      border-radius: 30px;
+      margin-bottom: 1.8rem;
+      backdrop-filter: blur(6px);
+      background: rgba(201,168,76,0.07);
+      animation: fadeDown 1s ease both;
+    }
+    .hero-badge i { font-size: 0.7rem; }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--white);
+      animation: fadeUp 1s 0.15s ease both;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.75);
+      margin: 1.4rem 0 2.4rem;
+      max-width: 500px;
+      line-height: 1.7;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.45s ease both;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.6);
+      z-index: 1;
+      animation: pulse 2.5s infinite;
+    }
+    .hero-scroll i { font-size: 1rem; }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about {
+      padding: 8rem 0;
+      background: var(--dark);
+      position: relative;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .about-feature {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: var(--transition);
+    }
+    .about-feature:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-3px);
+    }
+    .about-feature i {
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .about-feature h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .about-feature p {
+      font-size: 0.82rem;
+      color: var(--grey);
+      line-height: 1.55;
+    }
+
+    .about-notice {
+      margin-top: 2.5rem;
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.04));
+      border: 1px solid rgba(201,168,76,0.3);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .about-notice i {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .about-notice p {
+      font-size: 0.88rem;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      filter: brightness(0.9) saturate(0.85);
+      transition: transform 0.7s ease;
+    }
+    .about-img-wrap:hover img { transform: scale(1.03); }
+    .about-img-badge {
+      position: absolute;
+      bottom: 2rem; left: -2rem;
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.6rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .about-img-badge .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .about-img-badge .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 0.3rem;
+    }
+
+    /* ============================================================
+       BARBERS
+    ============================================================ */
+    #barbers {
+      padding: 8rem 0;
+      background: var(--black);
+      position: relative;
+    }
+    #barbers::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .barbers-header { text-align: center; margin-bottom: 4rem; }
+    .barbers-header .gold-line { margin: 1.2rem auto; }
+
+    .barbers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .barber-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .barber-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    .barber-img {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+    }
+    .barber-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.6s ease;
+    }
+    .barber-card:hover .barber-img img { transform: scale(1.05); }
+    .barber-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
+    }
+    .barber-img-name {
+      position: absolute;
+      bottom: 1.2rem; left: 1.4rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .barber-body { padding: 1.5rem; }
+
+    .barber-langs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .lang-tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--gold-light);
+      padding: 0.25rem 0.75rem;
+      border-radius: 30px;
+    }
+
+    .barber-contacts { display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 400;
+      transition: var(--transition);
+    }
+    .contact-btn i { font-size: 0.95rem; flex-shrink: 0; }
+
+    .contact-phone {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+    }
+    .contact-phone:hover {
+      background: rgba(201,168,76,0.12);
+      border-color: rgba(201,168,76,0.3);
+      color: var(--gold-light);
+    }
+    .contact-phone i { color: var(--gold); }
+
+    .contact-wa {
+      background: rgba(37,211,102,0.07);
+      border: 1px solid rgba(37,211,102,0.2);
+      color: #5dd882;
+    }
+    .contact-wa:hover {
+      background: rgba(37,211,102,0.15);
+      border-color: rgba(37,211,102,0.4);
+    }
+    .contact-wa i { color: #25d366; }
+
+    /* ============================================================
+       HOURS
+    ============================================================ */
+    #hours {
+      padding: 8rem 0;
+      background: var(--dark);
+      position: relative;
+    }
+    #hours::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .hours-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+    .hours-table tr {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background var(--transition);
+    }
+    .hours-table tr:hover { background: rgba(201,168,76,0.05); }
+    .hours-table tr.today { background: rgba(201,168,76,0.08); }
+    .hours-table td {
+      padding: 0.9rem 0.5rem;
+      font-size: 0.92rem;
+    }
+    .hours-table .day {
+      color: var(--grey-light);
+      font-weight: 400;
+    }
+    .hours-table .time {
+      text-align: right;
+      color: var(--white);
+      font-weight: 500;
+    }
+    .hours-table .closed { color: var(--grey); font-style: italic; }
+    .hours-table .today .day { color: var(--gold); font-weight: 500; }
+    .hours-table .today .time { color: var(--gold); }
+    .today-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.15rem 0.5rem;
+      border-radius: 30px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      font-weight: 600;
+    }
+
+    .hours-visual {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .hours-visual h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hours-visual p {
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+    .hours-icons {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+    }
+    .hours-icon-item {
+      text-align: center;
+    }
+    .hours-icon-item i {
+      font-size: 1.8rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .hours-icon-item span {
+      font-size: 0.72rem;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================================================
+       PAYMENT
+    ============================================================ */
+    #payment {
+      padding: 8rem 0;
+      background: var(--black);
+      position: relative;
+    }
+    #payment::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .payment-header { text-align: center; margin-bottom: 4rem; }
+    .payment-header .gold-line { margin: 1.2rem auto; }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .payment-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .payment-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .payment-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-5px); }
+    .payment-card:hover::before { opacity: 1; }
+
+    .payment-card i {
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .payment-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .payment-card p {
+      font-size: 0.8rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       LOCATION
+    ============================================================ */
+    #location {
+      padding: 8rem 0;
+      background: var(--dark);
+      position: relative;
+    }
+    #location::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .location-info { padding-top: 0.5rem; }
+    .location-detail {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-top: 1.8rem;
+    }
+    .location-detail i {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 20px;
+    }
+    .location-detail h4 {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+    .location-detail p {
+      font-size: 0.9rem;
+      color: var(--grey-light);
+      line-height: 1.6;
+    }
+
+    .map-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.15);
+      height: 420px;
+    }
+    .map-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      filter: grayscale(0.2) brightness(0.95);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 1.7rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .footer-brand p {
+      font-size: 0.87rem;
+      color: var(--grey);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul li { font-size: 0.87rem; color: var(--grey); }
+    .footer-col ul li i { color: var(--gold); margin-right: 0.5rem; font-size: 0.8rem; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--grey); }
+    .footer-bottom a { color: var(--gold); }
+    .footer-social { display: flex; gap: 0.8rem; }
+    .social-icon {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 8px;
+      color: var(--grey);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .social-icon:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       KEYFRAMES
+    ============================================================ */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+      50%       { opacity: 1;   transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual { display: none; }
+      .hours-inner { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: repeat(2, 1fr); }
+      .location-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .barbers-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .about-features { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .about-img-badge { left: 0.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .payment-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo">BARBER <span>Budapest</span></a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"   data-i18n="nav_about">Rólunk</a></li>
+      <li><a href="#barbers" data-i18n="nav_barbers">Fodrászok</a></li>
+      <li><a href="#hours"   data-i18n="nav_hours">Nyitvatartás</a></li>
+      <li><a href="#payment" data-i18n="nav_payment">Fizetés</a></li>
+      <li><a href="#location" data-i18n="nav_location">Helyszín</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <!-- Language switcher -->
+      <div class="lang-switcher" role="group" aria-label="Language selector">
+        <button class="lang-btn active" data-lang="hu" onclick="setLang('hu')">HU</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about"    data-i18n="nav_about"    onclick="closeMobile()">Rólunk</a>
+    <a href="#barbers"  data-i18n="nav_barbers"  onclick="closeMobile()">Fodrászok</a>
+    <a href="#hours"    data-i18n="nav_hours"    onclick="closeMobile()">Nyitvatartás</a>
+    <a href="#payment"  data-i18n="nav_payment"  onclick="closeMobile()">Fizetés</a>
+    <a href="#location" data-i18n="nav_location" onclick="closeMobile()">Helyszín</a>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-scissors"></i>
+        <span data-i18n="hero_badge">Prémium Barbershop • Budapest</span>
+      </div>
+      <h1 class="hero-title">
+        <span data-i18n="hero_title_1">Az igazi</span><br>
+        <em data-i18n="hero_title_2">Férfi stílus</em>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        Professzionális fodrász szolgáltatások Budapesten. Várakozás nélkül, időpont alapján.
+      </p>
+      <div class="hero-cta">
+        <a href="tel:+36309495055" class="btn btn-gold">
+          <i class="fas fa-calendar-check"></i>
+          <span data-i18n="hero_cta">Időpont foglalása</span>
+        </a>
+        <a href="#about" class="btn btn-outline">
+          <span data-i18n="hero_learn">Tudj meg többet</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <i class="fas fa-chevron-down"></i>
+    <span data-i18n="scroll_down">Görgetés</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about" aria-label="About">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Text side -->
+      <div>
+        <p class="section-label reveal" data-i18n="about_label">Rólunk</p>
+        <h2 class="section-title reveal" data-i18n="about_title">A tökéletes<br>férfi megjelenés</h2>
+        <div class="gold-line reveal"></div>
+        <p class="section-desc reveal" data-i18n="about_desc">
+          Csapatunk tapasztalt, többnyelvű fodrászokból áll, akik magyarul, angolul, franciául és arabul is kommunikálnak veled. Barátságos, elegáns környezetben dolgozunk, ahol minden ügyfél prémium kiszolgálást kap.
+        </p>
+
+        <div class="about-features reveal">
+          <div class="about-feature">
+            <i class="fas fa-language"></i>
+            <h4 data-i18n="feat_multi_title">Többnyelvű</h4>
+            <p data-i18n="feat_multi_desc">Magyar, angol, francia és arab.</p>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-star"></i>
+            <h4 data-i18n="feat_qual_title">Prémium minőség</h4>
+            <p data-i18n="feat_qual_desc">Tapasztalt fodrászok, professzionális eszközök.</p>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-smile"></i>
+            <h4 data-i18n="feat_atm_title">Baráti légkör</h4>
+            <p data-i18n="feat_atm_desc">Jó hangulat, személyes kiszolgálás.</p>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4 data-i18n="feat_loc_title">Budapest szívében</h4>
+            <p data-i18n="feat_loc_desc">Murányi u. 17, könnyen megközelíthető.</p>
+          </div>
+        </div>
+
+        <!-- Notice -->
+        <div class="about-notice reveal">
+          <i class="fas fa-exclamation-circle"></i>
+          <p data-i18n="about_notice">
+            <strong>Fontos:</strong> Kérjük, érkezés előtt foglaljon időpontot az alábbi telefonszámokon. Időpont nélkül nem tudunk fogadni.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image side -->
+      <div class="about-visual reveal">
+        <div class="about-img-wrap">
+          <img src="pic3.webp"
+               alt="Barbershop interior" loading="lazy" />
+        </div>
+        <div class="about-img-badge">
+          <div class="num">2+</div>
+          <div class="label" data-i18n="badge_label">Profi fodrász</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BARBERS
+============================================================ -->
+<section id="barbers" aria-label="Our barbers">
+  <div class="container">
+    <div class="barbers-header">
+      <p class="section-label reveal" data-i18n="barbers_label">Csapatunk</p>
+      <h2 class="section-title reveal" data-i18n="barbers_title">Fodrászaink</h2>
+      <div class="gold-line reveal"></div>
+      <p class="section-desc reveal" style="margin:0 auto;text-align:center;" data-i18n="barbers_desc">
+        Tapasztalt mesterek, akik odafigyelnek a részletekre.
+      </p>
+    </div>
+
+    <div class="barbers-grid">
+
+      <!-- Barber 1: RABAH -->
+      <div class="barber-card reveal">
+        <div class="barber-img">
+          <img src="pic1.webp" alt="Rabah – Barber" loading="lazy"
+               onerror="this.src='data:image/jpeg;base64,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'" />
+          <div class="barber-img-overlay"></div>
+          <div class="barber-img-name">RABAH</div>
+        </div>
+        <div class="barber-body">
+          <div class="barber-langs">
+            <span class="lang-tag">🇭🇺 Magyar</span>
+            <span class="lang-tag">🇬🇧 English</span>
+            <span class="lang-tag">🇫🇷 Français</span>
+            <span class="lang-tag">🇸🇦 العربية</span>
+          </div>
+          <div class="barber-contacts">
+            <a href="tel:+36309495055" class="contact-btn contact-phone">
+              <i class="fas fa-phone"></i>
+              <span>+36 30 949 5055</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barber 2: Zaki -->
+      <div class="barber-card reveal">
+        <div class="barber-img">
+          <img src="pic2.webp" alt="Zaki – Barber" loading="lazy"
+               onerror="this.src='https://lh5.googleusercontent.com/p/AF1QipMSwOGhwihh4JBf12OJeAfa7CIQ1398qyU-85Yk=w281-h500-k-no'" />
+          <div class="barber-img-overlay"></div>
+          <div class="barber-img-name">ZAKI</div>
+        </div>
+        <div class="barber-body">
+          <div class="barber-langs">
+            <span class="lang-tag">🇭🇺 Magyar</span>
+            <span class="lang-tag">🇬🇧 English</span>
+            <span class="lang-tag">🇫🇷 Français</span>
+            <span class="lang-tag">🇸🇦 العربية</span>
+          </div>
+          <div class="barber-contacts">
+            <a href="tel:+36702417437" class="contact-btn contact-phone">
+              <i class="fas fa-phone"></i>
+              <span>+36 70 241 7437</span>
+            </a>
+            <a href="https://wa.me/36702417437" target="_blank" rel="noopener" class="contact-btn contact-wa">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp: +36 70 241 7437</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OPENING HOURS
+============================================================ -->
+<section id="hours" aria-label="Opening hours">
+  <div class="container">
+    <div class="hours-inner">
+
+      <!-- Table -->
+      <div>
+        <p class="section-label reveal" data-i18n="hours_label">Mikor vagyunk nyitva</p>
+        <h2 class="section-title reveal" data-i18n="hours_title">Nyitvatartás</h2>
+        <div class="gold-line reveal"></div>
+
+        <table class="hours-table reveal" id="hoursTable" aria-label="Opening hours">
+          <tbody>
+            <tr id="row-mon">
+              <td class="day"><span data-i18n="day_mon">Hétfő</span></td>
+              <td class="time">10:00 – 21:00</td>
+            </tr>
+            <tr id="row-tue">
+              <td class="day"><span data-i18n="day_tue">Kedd</span></td>
+              <td class="time">10:00 – 21:00</td>
+            </tr>
+            <tr id="row-wed">
+              <td class="day"><span data-i18n="day_wed">Szerda</span></td>
+              <td class="time">10:00 – 21:00</td>
+            </tr>
+            <tr id="row-thu">
+              <td class="day"><span data-i18n="day_thu">Csütörtök</span></td>
+              <td class="time">10:00 – 21:00</td>
+            </tr>
+            <tr id="row-fri">
+              <td class="day"><span data-i18n="day_fri">Péntek</span></td>
+              <td class="time">10:00 – 21:00</td>
+            </tr>
+            <tr id="row-sat">
+              <td class="day"><span data-i18n="day_sat">Szombat</span></td>
+              <td class="time">10:00 – 20:00</td>
+            </tr>
+            <tr id="row-sun">
+              <td class="day"><span data-i18n="day_sun">Vasárnap</span></td>
+              <td class="time closed" data-i18n="closed">Zárva</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Visual card -->
+      <div class="hours-visual reveal">
+        <h3 data-i18n="hours_card_title">Foglalj időpontot</h3>
+        <p data-i18n="hours_card_desc">
+          Kérjük, látogatás előtt hívjon minket az alábbi telefonszámokon, hogy biztosítsuk az Ön számára a legjobb időpontot.
+        </p>
+        <div class="hours-icons">
+          <div class="hours-icon-item">
+            <i class="fas fa-phone-alt"></i>
+            <span data-i18n="call_us">Hívjon minket</span>
+          </div>
+          <div class="hours-icon-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </div>
+          <div class="hours-icon-item">
+            <i class="fas fa-calendar-check"></i>
+            <span data-i18n="make_appt">Időpont</span>
+          </div>
+        </div>
+        <div style="margin-top:1.8rem;display:flex;flex-direction:column;gap:0.7rem;">
+          <a href="tel:+36309495055" class="contact-btn contact-phone">
+            <i class="fas fa-phone"></i>
+            <span>Rabah: +36 30 949 5055</span>
+          </a>
+          <a href="tel:+36702417437" class="contact-btn contact-phone">
+            <i class="fas fa-phone"></i>
+            <span>Zaki: +36 70 241 7437</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAYMENT METHODS
+============================================================ -->
+<section id="payment" aria-label="Payment methods">
+  <div class="container">
+    <div class="payment-header">
+      <p class="section-label reveal" data-i18n="payment_label">Kényelmes fizetés</p>
+      <h2 class="section-title reveal" data-i18n="payment_title">Fizetési lehetőségek</h2>
+      <div class="gold-line reveal"></div>
+      <p class="section-desc reveal" style="margin:0 auto;text-align:center;" data-i18n="payment_desc">
+        Elfogadjuk a legtöbb fizetési formát az Ön kényelméért.
+      </p>
+    </div>
+
+    <div class="payment-grid">
+      <div class="payment-card reveal">
+        <i class="fas fa-credit-card"></i>
+        <h4 data-i18n="pay_credit">Hitelkártya</h4>
+        <p data-i18n="pay_credit_desc">Visa, Mastercard és egyéb kártyák elfogadva.</p>
+      </div>
+      <div class="payment-card reveal">
+        <i class="fas fa-money-check-alt"></i>
+        <h4 data-i18n="pay_debit">Bankkártya</h4>
+        <p data-i18n="pay_debit_desc">Minden bankkártya elfogadott.</p>
+      </div>
+      <div class="payment-card reveal">
+        <i class="fas fa-mobile-alt"></i>
+        <h4 data-i18n="pay_nfc">NFC / Érintéses</h4>
+        <p data-i18n="pay_nfc_desc">Apple Pay, Google Pay és NFC kártyák.</p>
+      </div>
+      <div class="payment-card reveal">
+        <i class="fas fa-money-bill-wave"></i>
+        <h4 data-i18n="pay_cash">Készpénz</h4>
+        <p data-i18n="pay_cash_desc">Készpénzes fizetés is lehetséges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     LOCATION
+============================================================ -->
+<section id="location" aria-label="Location">
+  <div class="container">
+    <div class="location-grid">
+
+      <div class="location-info">
+        <p class="section-label reveal" data-i18n="loc_label">Hol találsz minket</p>
+        <h2 class="section-title reveal" data-i18n="loc_title">Helyszín</h2>
+        <div class="gold-line reveal"></div>
+
+        <div class="location-detail reveal">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4 data-i18n="loc_address_label">Cím</h4>
+            <p>Murányi u. 17,<br>1078 Budapest, Hungary</p>
+          </div>
+        </div>
+
+        <div class="location-detail reveal">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <h4 data-i18n="loc_phone_label">Telefonszámok</h4>
+            <p>
+              Rabah: <a href="tel:+36309495055" style="color:var(--gold-light);">+36 30 949 5055</a><br>
+              Zaki: <a href="tel:+36702417437" style="color:var(--gold-light);">+36 70 241 7437</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="location-detail reveal">
+          <i class="fas fa-clock"></i>
+          <div>
+            <h4 data-i18n="loc_hours_label">Nyitvatartás</h4>
+            <p data-i18n="loc_hours_val">H–P, V: 10:00–21:00 | Szombat: 10:00–20:00 | Vasárnap: Zárva</p>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;" class="reveal">
+          <a href="https://share.google/ElhKRJiio5KqWD8f2" target="_blank" rel="noopener"
+             class="btn btn-gold">
+            <i class="fas fa-directions"></i>
+            <span data-i18n="loc_btn">Megnyitás Google Maps-ben</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Map embed -->
+      <div class="map-wrap reveal">
+        <iframe
+          title="Barber Budapest location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.305857738!2d19.07!3d47.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc4c15e66c2f%3A0x1!2sMur%C3%A1nyi+u.+17%2C+Budapest+1078!5e0!3m2!1shu!2shu!4v1700000000000"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo">BARBER <span>Budapest</span></a>
+        <p data-i18n="footer_about">
+          Prémium fodrász szolgáltatások Budapest szívében. Időpont alapján, baráti légkörben, profizmussal.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact">Kapcsolat</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Murányi u. 17, 1078 Budapest</li>
+          <li><i class="fas fa-phone"></i><a href="tel:+36309495055">+36 30 949 5055</a></li>
+          <li><i class="fas fa-phone"></i><a href="tel:+36702417437">+36 70 241 7437</a></li>
+          <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/36702417437">WhatsApp (Zaki)</a></li>
+        </ul>
+      </div>
+
+      <!-- Hours -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_hours">Nyitvatartás</h4>
+        <ul>
+          <li data-i18n="footer_h1"><i class="fas fa-clock"></i> Hétfő–Péntek: 10–21h</li>
+          <li data-i18n="footer_h2"><i class="fas fa-clock"></i> Szombat: 10–20h</li>
+          <li data-i18n="footer_h3"><i class="fas fa-times-circle"></i> Vasárnap: Zárva</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p data-i18n="footer_copy">© 2025 Barber Budapest. Minden jog fenntartva.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/36702417437" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+36309495055" class="social-icon" aria-label="Phone Rabah">
+          <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://share.google/ElhKRJiio5KqWD8f2" class="social-icon" aria-label="Google Maps" target="_blank" rel="noopener">
+          <i class="fas fa-map-marker-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+
+/* ----------------------------------------------------------------
+   TRANSLATIONS
+---------------------------------------------------------------- */
+const translations = {
+  hu: {
+    // Nav
+    nav_about: 'Rólunk',
+    nav_barbers: 'Fodrászok',
+    nav_hours: 'Nyitvatartás',
+    nav_payment: 'Fizetés',
+    nav_location: 'Helyszín',
+    // Hero
+    hero_badge: 'Prémium Barbershop • Budapest',
+    hero_title_1: 'Az igazi',
+    hero_title_2: 'Férfi stílus',
+    hero_sub: 'Professzionális fodrász szolgáltatások Budapesten. Várakozás nélkül, időpont alapján.',
+    hero_cta: 'Időpont foglalása',
+    hero_learn: 'Tudj meg többet',
+    scroll_down: 'Görgetés',
+    // About
+    about_label: 'Rólunk',
+    about_title: 'A tökéletes\nférfi megjelenés',
+    about_desc: 'Csapatunk tapasztalt, többnyelvű fodrászokból áll, akik magyarul, angolul, franciául és arabul is kommunikálnak veled. Barátságos, elegáns környezetben dolgozunk.',
+    feat_multi_title: 'Többnyelvű',
+    feat_multi_desc: 'Magyar, angol, francia és arab.',
+    feat_qual_title: 'Prémium minőség',
+    feat_qual_desc: 'Tapasztalt fodrászok, professzionális eszközök.',
+    feat_atm_title: 'Baráti légkör',
+    feat_atm_desc: 'Jó hangulat, személyes kiszolgálás.',
+    feat_loc_title: 'Budapest szívében',
+    feat_loc_desc: 'Murányi u. 17, könnyen megközelíthető.',
+    about_notice: '<strong>Fontos:</strong> Kérjük, érkezés előtt foglaljon időpontot az alábbi telefonszámokon. Időpont nélkül nem tudunk fogadni.',
+    badge_label: 'Profi fodrász',
+    // Barbers
+    barbers_label: 'Csapatunk',
+    barbers_title: 'Fodrászaink',
+    barbers_desc: 'Tapasztalt mesterek, akik odafigyelnek a részletekre.',
+    // Hours
+    hours_label: 'Mikor vagyunk nyitva',
+    hours_title: 'Nyitvatartás',
+    day_mon: 'Hétfő',
+    day_tue: 'Kedd',
+    day_wed: 'Szerda',
+    day_thu: 'Csütörtök',
+    day_fri: 'Péntek',
+    day_sat: 'Szombat',
+    day_sun: 'Vasárnap',
+    closed: 'Zárva',
+    today_label: 'Ma',
+    hours_card_title: 'Foglalj időpontot',
+    hours_card_desc: 'Kérjük, látogatás előtt hívjon minket az alábbi telefonszámokon.',
+    call_us: 'Hívjon minket',
+    make_appt: 'Időpont',
+    // Payment
+    payment_label: 'Kényelmes fizetés',
+    payment_title: 'Fizetési lehetőségek',
+    payment_desc: 'Elfogadjuk a legtöbb fizetési formát az Ön kényelméért.',
+    pay_credit: 'Hitelkártya',
+    pay_credit_desc: 'Visa, Mastercard és egyéb kártyák elfogadva.',
+    pay_debit: 'Bankkártya',
+    pay_debit_desc: 'Minden bankkártya elfogadott.',
+    pay_nfc: 'NFC / Érintéses',
+    pay_nfc_desc: 'Apple Pay, Google Pay és NFC kártyák.',
+    pay_cash: 'Készpénz',
+    pay_cash_desc: 'Készpénzes fizetés is lehetséges.',
+    // Location
+    loc_label: 'Hol találsz minket',
+    loc_title: 'Helyszín',
+    loc_address_label: 'Cím',
+    loc_phone_label: 'Telefonszámok',
+    loc_hours_label: 'Nyitvatartás',
+    loc_hours_val: 'H–P, V: 10:00–21:00 | Szombat: 10:00–20:00 | Vasárnap: Zárva',
+    loc_btn: 'Megnyitás Google Maps-ben',
+    // Footer
+    footer_about: 'Prémium fodrász szolgáltatások Budapest szívében. Időpont alapján, baráti légkörben, profizmussal.',
+    footer_contact: 'Kapcsolat',
+    footer_hours: 'Nyitvatartás',
+    footer_h1: 'Hétfő–Péntek: 10–21h',
+    footer_h2: 'Szombat: 10–20h',
+    footer_h3: 'Vasárnap: Zárva',
+    footer_copy: '© 2025 Barber Budapest. Minden jog fenntartva.',
+  },
+
+  en: {
+    nav_about: 'About',
+    nav_barbers: 'Barbers',
+    nav_hours: 'Hours',
+    nav_payment: 'Payment',
+    nav_location: 'Location',
+    hero_badge: 'Premium Barbershop • Budapest',
+    hero_title_1: 'The real',
+    hero_title_2: 'Men\'s Style',
+    hero_sub: 'Professional barber services in Budapest. By appointment only, no waiting.',
+    hero_cta: 'Book Appointment',
+    hero_learn: 'Learn More',
+    scroll_down: 'Scroll',
+    about_label: 'About Us',
+    about_title: 'The Perfect\nMen\'s Look',
+    about_desc: 'Our team consists of experienced, multilingual barbers who communicate in Hungarian, English, French and Arabic. We work in a friendly, elegant environment.',
+    feat_multi_title: 'Multilingual',
+    feat_multi_desc: 'Hungarian, English, French and Arabic.',
+    feat_qual_title: 'Premium Quality',
+    feat_qual_desc: 'Experienced barbers, professional tools.',
+    feat_atm_title: 'Friendly Atmosphere',
+    feat_atm_desc: 'Great vibes, personal service.',
+    feat_loc_title: 'Heart of Budapest',
+    feat_loc_desc: 'Murányi u. 17, easily accessible.',
+    about_notice: '<strong>Important:</strong> Please make your appointment first before coming by calling the numbers below. We cannot accept walk-ins.',
+    badge_label: 'Pro Barbers',
+    barbers_label: 'Our Team',
+    barbers_title: 'Our Barbers',
+    barbers_desc: 'Experienced masters who pay attention to every detail.',
+    hours_label: 'When We\'re Open',
+    hours_title: 'Opening Hours',
+    day_mon: 'Monday',
+    day_tue: 'Tuesday',
+    day_wed: 'Wednesday',
+    day_thu: 'Thursday',
+    day_fri: 'Friday',
+    day_sat: 'Saturday',
+    day_sun: 'Sunday',
+    closed: 'Closed',
+    today_label: 'Today',
+    hours_card_title: 'Book an Appointment',
+    hours_card_desc: 'Please call us before your visit to secure the best time slot for you.',
+    call_us: 'Call us',
+    make_appt: 'Appointment',
+    payment_label: 'Convenient Payment',
+    payment_title: 'Payment Methods',
+    payment_desc: 'We accept most payment methods for your convenience.',
+    pay_credit: 'Credit Card',
+    pay_credit_desc: 'Visa, Mastercard and more accepted.',
+    pay_debit: 'Debit Card',
+    pay_debit_desc: 'All debit cards accepted.',
+    pay_nfc: 'NFC / Contactless',
+    pay_nfc_desc: 'Apple Pay, Google Pay and NFC cards.',
+    pay_cash: 'Cash',
+    pay_cash_desc: 'Cash payments also accepted.',
+    loc_label: 'Find Us',
+    loc_title: 'Location',
+    loc_address_label: 'Address',
+    loc_phone_label: 'Phone Numbers',
+    loc_hours_label: 'Opening Hours',
+    loc_hours_val: 'Mon–Fri, Sun: 10:00–21:00 | Saturday: 10:00–20:00 | Sunday: Closed',
+    loc_btn: 'Open in Google Maps',
+    footer_about: 'Premium barber services in the heart of Budapest. By appointment, friendly atmosphere, professionalism.',
+    footer_contact: 'Contact',
+    footer_hours: 'Opening Hours',
+    footer_h1: 'Monday–Friday: 10am–9pm',
+    footer_h2: 'Saturday: 10am–8pm',
+    footer_h3: 'Sunday: Closed',
+    footer_copy: '© 2025 Barber Budapest. All rights reserved.',
+  },
+
+  fr: {
+    nav_about: 'À propos',
+    nav_barbers: 'Barbiers',
+    nav_hours: 'Horaires',
+    nav_payment: 'Paiement',
+    nav_location: 'Localisation',
+    hero_badge: 'Barbershop Premium • Budapest',
+    hero_title_1: 'Le vrai',
+    hero_title_2: 'Style masculin',
+    hero_sub: 'Services de coiffure professionnels à Budapest. Sur rendez-vous uniquement, sans attente.',
+    hero_cta: 'Prendre rendez-vous',
+    hero_learn: 'En savoir plus',
+    scroll_down: 'Défiler',
+    about_label: 'À propos',
+    about_title: 'L\'apparence\nmasculine parfaite',
+    about_desc: 'Notre équipe est composée de barbiers expérimentés et multilingues parlant hongrois, anglais, français et arabe. Nous travaillons dans un environnement convivial et élégant.',
+    feat_multi_title: 'Multilingue',
+    feat_multi_desc: 'Hongrois, anglais, français et arabe.',
+    feat_qual_title: 'Qualité Premium',
+    feat_qual_desc: 'Barbiers expérimentés, outils professionnels.',
+    feat_atm_title: 'Ambiance conviviale',
+    feat_atm_desc: 'Bonne ambiance, service personnalisé.',
+    feat_loc_title: 'Cœur de Budapest',
+    feat_loc_desc: 'Murányi u. 17, facilement accessible.',
+    about_notice: '<strong>Important :</strong> Veuillez prendre rendez-vous avant de venir en appelant les numéros ci-dessous. Nous ne pouvons pas accepter les clients sans rendez-vous.',
+    badge_label: 'Barbiers Pro',
+    barbers_label: 'Notre équipe',
+    barbers_title: 'Nos Barbiers',
+    barbers_desc: 'Des maîtres expérimentés qui prêtent attention aux détails.',
+    hours_label: 'Quand nous sommes ouverts',
+    hours_title: 'Horaires d\'ouverture',
+    day_mon: 'Lundi',
+    day_tue: 'Mardi',
+    day_wed: 'Mercredi',
+    day_thu: 'Jeudi',
+    day_fri: 'Vendredi',
+    day_sat: 'Samedi',
+    day_sun: 'Dimanche',
+    closed: 'Fermé',
+    today_label: "Aujourd'hui",
+    hours_card_title: 'Prendre rendez-vous',
+    hours_card_desc: 'Veuillez nous appeler avant votre visite pour réserver le meilleur créneau.',
+    call_us: 'Appelez-nous',
+    make_appt: 'Rendez-vous',
+    payment_label: 'Paiement pratique',
+    payment_title: 'Moyens de paiement',
+    payment_desc: 'Nous acceptons la plupart des modes de paiement pour votre commodité.',
+    pay_credit: 'Carte de crédit',
+    pay_credit_desc: 'Visa, Mastercard et autres cartes acceptées.',
+    pay_debit: 'Carte bancaire',
+    pay_debit_desc: 'Toutes les cartes bancaires acceptées.',
+    pay_nfc: 'NFC / Sans contact',
+    pay_nfc_desc: 'Apple Pay, Google Pay et cartes NFC.',
+    pay_cash: 'Espèces',
+    pay_cash_desc: 'Les paiements en espèces sont également acceptés.',
+    loc_label: 'Nous trouver',
+    loc_title: 'Localisation',
+    loc_address_label: 'Adresse',
+    loc_phone_label: 'Téléphones',
+    loc_hours_label: 'Horaires',
+    loc_hours_val: 'Lun–Ven, Dim : 10h–21h | Samedi : 10h–20h | Dimanche : Fermé',
+    loc_btn: 'Ouvrir dans Google Maps',
+    footer_about: 'Services de coiffure premium au cœur de Budapest. Sur rendez-vous, ambiance conviviale, professionnalisme.',
+    footer_contact: 'Contact',
+    footer_hours: "Horaires d'ouverture",
+    footer_h1: 'Lundi–Vendredi : 10h–21h',
+    footer_h2: 'Samedi : 10h–20h',
+    footer_h3: 'Dimanche : Fermé',
+    footer_copy: '© 2025 Barber Budapest. Tous droits réservés.',
+  }
+};
+
+/* ----------------------------------------------------------------
+   LANGUAGE SWITCHING
+---------------------------------------------------------------- */
+let currentLang = 'hu';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+
+  // Update all elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      // Use innerHTML to support <strong> tags in notices
+      el.innerHTML = t[key];
+    }
+  });
+
+  // Update lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+
+  // Update html lang attribute
+  document.documentElement.lang = lang;
+
+  // Re-highlight today
+  highlightToday();
+}
+
+/* ----------------------------------------------------------------
+   HIGHLIGHT TODAY'S ROW
+---------------------------------------------------------------- */
+function highlightToday() {
+  const t = translations[currentLang];
+  const dayMap = ['row-sun','row-mon','row-tue','row-wed','row-thu','row-fri','row-sat'];
+  const today = new Date().getDay(); // 0=Sun
+  const todayRowId = dayMap[today];
+
+  // Remove previous
+  document.querySelectorAll('.hours-table tr').forEach(tr => {
+    tr.classList.remove('today');
+    const badge = tr.querySelector('.today-badge');
+    if (badge) badge.remove();
+  });
+
+  // Add today highlight
+  const todayRow = document.getElementById(todayRowId);
+  if (todayRow) {
+    todayRow.classList.add('today');
+    const dayCell = todayRow.querySelector('.day');
+    if (dayCell) {
+      const badge = document.createElement('span');
+      badge.className = 'today-badge';
+      badge.textContent = t.today_label || 'Ma';
+      dayCell.appendChild(badge);
+    }
+  }
+}
+
+/* ----------------------------------------------------------------
+   NAVBAR SCROLL EFFECT
+---------------------------------------------------------------- */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ----------------------------------------------------------------
+   HAMBURGER / MOBILE MENU
+---------------------------------------------------------------- */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+});
+
+function closeMobile() {
+  mobileNav.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+}
+
+/* ----------------------------------------------------------------
+   SCROLL REVEAL (IntersectionObserver)
+---------------------------------------------------------------- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Stagger delay for siblings
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+      const idx = siblings.indexOf(entry.target);
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, idx * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ----------------------------------------------------------------
+   INIT
+---------------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+  setLang('hu');
+});
+
+</script>
+</body>
+</html>
